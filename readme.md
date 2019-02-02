@@ -1,2 +1,2 @@
-## TEKSOL Multi vendor
-A Multivendor system is developed by team teksol
+## TEKSOL Multi-Vendor
+A Multivendor System developed with :sparkling_heart: By **TekSol
