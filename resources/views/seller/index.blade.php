@@ -9,6 +9,7 @@
                 <div class="card-body">
                     <ul>
                         <li><a href="{{URL::to('/seller/product')}}">Products</a></li>
+                        <li><a href="{{URL::to('/seller/orders')}}">Orders</a></li>
                     </ul>
 
                 </div>
