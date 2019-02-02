@@ -32,11 +32,15 @@ class UserController extends Controller
         $user_id = Auth::user()->id;
         $response = Cart::getContent();
 
-        $response->toArray();
-        // $response = array_values($response);
-        // array_splice($response, 1);
-        // return $response;
-        return \Response::json($response);
+        // Desi Methods
+        $newArray = array();
+        $i=0;
+        foreach($response as $r){
+            $newArray[$i] = $r;
+            $i++;
+        }
+        
+        return \Response::json($newArray);
     }
     public function delete_from_cart($id){
         Cart::remove($id);

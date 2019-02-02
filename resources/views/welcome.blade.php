@@ -85,7 +85,7 @@
                     if(size <= 0){
                         div = "<h4>Cart is Empty</h4>";
                     }else{
-                        for(var i=1; i <= size; i++){
+                        for(var i=0; i < size; i++){
                             div += "<tr><td>"+response[i]['name']+"</td><td>"+response[i]['quantity']+"</td><td>"+response[i]['price']+"</td>" +
                                     "<td><button type='button' onclick='deleteFromCart("+response[i]['id']+");'>delete</button></td></tr>";
                             total += response[i]['price'];
