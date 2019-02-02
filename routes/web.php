@@ -23,3 +23,17 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'seller'], function () {
+    Route::get('/', 'SellerController@index');
+
+    //product crud
+    Route::get('/product', 'SellerController@product');
+    Route::get('/product/new', 'SellerController@product_new');
+    Route::get('/product/edit/{id}', 'SellerController@product_edit');
+    Route::get('/product/delete/{id}', 'SellerController@product_delete');
+
+    Route::post('/product/submit', 'SellerController@product_submit');
+    Route::post('/product/update', 'SellerController@product_update');
+
+});
