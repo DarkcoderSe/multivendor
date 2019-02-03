@@ -29,7 +29,7 @@
                                 <p>Price: {{$product->price}}</p>
                             </div>
                             <div class="card-footer">
-                                <button type="button" onclick="addToCart({{$product->id}})" class="btn btn-dark btn-block btn-sm">Add to Cart</button>
+                                <button type="button" onclick="addToCart({{$product->id}});" class="btn btn-dark btn-block btn-sm">Add to Cart</button>
                             </div>
                         </div>
                         @endforeach
@@ -92,20 +92,22 @@
                         }
                     }
 
-
                     $('#my_cart').html(div);
                     $('#total_cart').html(total);
                 });
             }
             function addToCart(pid){
+                console.log('called');
                 var url = "{{URL::to('/user/add_to_cart')}}";
                 var product_id = pid;
                 var csrf_token = "{{csrf_token()}}";
                 $.post(url,{product_id:product_id, _token:csrf_token},function(response){
                         console.log(response);
                         getFromCart();
-                    },
-                );
+                }).fail(function(e){
+                    console.log(e);
+                });
+
             }
         </script>
     </body>

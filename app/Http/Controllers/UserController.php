@@ -13,7 +13,7 @@ class UserController extends Controller
     //
     public function add_to_cart(Request $request){
         $product = Product::find($request->product_id);
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
         Cart::add(array(
             'id' => $product->id,
             'name' => $product->name,
@@ -29,7 +29,7 @@ class UserController extends Controller
         return \Response::json($response);
     }
     public function get_from_cart(){
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
         $response = Cart::getContent();
 
         // Desi Methods
@@ -39,7 +39,7 @@ class UserController extends Controller
             $newArray[$i] = $r;
             $i++;
         }
-        
+
         return \Response::json($newArray);
     }
     public function delete_from_cart($id){
