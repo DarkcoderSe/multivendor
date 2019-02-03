@@ -54,6 +54,11 @@
                                     <td id="total_cart"></td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <a href="{{ URL::to('/user/checkout') }}" class="btn btn-success btn-block btn-sm">checkout</a>
+                                    </td>
+                                </tr>
                             </tfoot>
                         </table>
                     </div>
