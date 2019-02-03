@@ -26,6 +26,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/add_to_cart', 'UserController@add_to_cart');
     Route::get('/get_from_cart', 'UserController@get_from_cart');
     Route::get('/delete_from_cart/{id}', 'UserController@delete_from_cart');
+    Route::get('/checkout', 'UserController@cart_checkout');
+    Route::post('/checkout', 'UserController@cart_checkout_submit');
 });
 
 Route::group(['prefix' => 'seller'], function () {

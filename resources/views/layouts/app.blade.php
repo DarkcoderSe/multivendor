@@ -49,7 +49,7 @@
                     <div class="row">
                         <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="{{route('/')}}">
                                     <img style="width:auto;height:50px" src="images/logo/logo.png" alt="logo">
                                 </a>
                             </div>
@@ -65,36 +65,8 @@
                                             <li><a href="blog-details.html">Blog details</a></li>
                                         </ul>
                                     </li> --}}
-                                    <li class="drop"><a href="shop.html">Shop</a>
-                                        <ul class="dropdown mega_dropdown">
-                                            <!-- Start Single Mega MEnu -->
-                                            <li><a class="mega__title" href="shop.html">shop layout</a>
-                                                <ul class="mega__item">
-                                                    <li><a href="shop.html">default shop</a></li>
-                                                </ul>
-                                            </li>
-                                            <!-- End Single Mega MEnu -->
-                                            <!-- Start Single Mega MEnu -->
-                                            <li><a class="mega__title" href="shop.html">product details layout</a>
-                                                <ul class="mega__item">
-                                                    <li><a href="product-details.html">tab style 1</a></li></li>
-                                                </ul>
-                                            </li>
-                                            <!-- End Single Mega MEnu -->
-                                            <!-- Start Single Mega MEnu -->
-                                            <li>
-                                                <ul class="mega__item">
-                                                    <li>
-                                                        <div class="mega-item-img">
-                                                            <a href="shop.html">
-                                                                <img src="images/feature-img/3.png" alt="">
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <!-- End Single Mega MEnu -->
-                                        </ul>
+                                    <li class="drop"><a href="/shop">Shop</a>
+
                                     </li>
                                     <li class="drop"><a href="#">pages</a>
                                         <ul class="dropdown">
@@ -104,14 +76,14 @@
                                                     <li><a href="customer-review.html">customer review</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="shop.html">shop</a></li>
+                                            <li><a href="/shop">shop</a></li>
                                             <li><a href="shop-sidebar.html">shop sidebar</a></li>
                                             <li><a href="product-details.html">product details</a></li>
                                             <li><a href="cart.html">cart</a></li>
                                             <li><a href="wishlist.html">wishlist</a></li>
                                             <li><a href="checkout.html">checkout</a></li>
                                             <li><a href="team.html">team</a></li>
-                                            <li><a href="login-register.html">login & register</a></li>
+                                            <li><a href="{{route('login')}}">login & register</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">contact</a></li>
@@ -131,14 +103,14 @@
                                             <ul>
                                                 <li><a href="about.html">about</a></li>
                                                 <li><a href="customer-review.html">customer review</a></li>
-                                                <li><a href="shop.html">shop</a></li>
+                                                <li><a href="/shop">shop</a></li>
                                                 <li><a href="shop-sidebar.html">shop sidebar</a></li>
                                                 <li><a href="product-details.html">product details</a></li>
                                                 <li><a href="cart.html">cart</a></li>
                                                 <li><a href="wishlist.html">wishlist</a></li>
                                                 <li><a href="checkout.html">checkout</a></li>
                                                 <li><a href="team.html">team</a></li>
-                                                <li><a href="login-register.html">login & register</a></li>
+                                                <li><a href="{{route('login')}}">login & register</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">contact</a></li>
@@ -149,10 +121,18 @@
                         <!-- End MAinmenu Ares -->
                         <div class="col-md-2 col-sm-4 col-xs-3">
                             <ul class="menu-extra">
-                                <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
-                                <li><a href="login-register.html"><span class="ti-user"></span></a></li>
-                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
-                                <li class="toggle__menu hidden-xs hidden-sm"><span class="ti-menu"></span></li>
+                                <li title="Search Product" class="search search__open hidden-xs"><span class="ti-search"></span></li>
+                                <li title="Login / Register" ><a href="{{route('login')}}"><span class="ti-user"></span></a></li>
+                                @if(!Auth::guest())
+                                <li title="Logout">
+                                  <a onclick="event.preventDefault();document.querySelector('#frm-logout').submit()" > <span class="ti-power-off"></span></a>
+                                  <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      {{ csrf_field() }}
+                                  </form>
+                                </li>
+                              @endif
+                                <li title="View Cart" class="cart__menu"><span class="ti-shopping-cart"></span></li>
+                                <li title="Menu" class="toggle__menu hidden-xs hidden-sm"><span class="ti-menu"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -193,7 +173,7 @@
                     </div>
                     <div class="off__contact">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{{route('/')}}">
                                 <img src="images/logo/logo.png" alt="logo">
                             </a>
                         </div>
@@ -296,50 +276,7 @@
         </div>
         <!-- End Offset Wrapper -->
         <!-- Start Feature Product -->
-        <section class="categories-slider-area bg__white">
-            <div class="container">
-                <div class="row">
-                    <!-- Start Left Feature -->
-                    <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
-                        <!-- Start Slider Area -->
-                        <div class="slider__container slider--one">
-                            <div class="slider__activation__wrap owl-carousel owl-theme">
-                                <!-- Start Single Slide -->
-                                <div class="slide slider__full--screen slider-height-inherit slider-text-right" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/1.png) no-repeat scroll center center / cover ;">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
-                                                <div class="slider__inner">
-                                                    <h1>New Product <span class="text--theme">Collection</span></h1>
-                                                    <div class="slider__btn">
-                                                        <a class="htc__btn" href="cart.html">shop now</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Slide -->
-                                <!-- Start Single Slide -->
-                                <div class="slide slider__full--screen slider-height-inherit  slider-text-left" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/2.png) no-repeat scroll center center / cover ;">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
-                                                <div class="slider__inner">
-                                                    <h1>New Product <span class="text--theme">Collection</span></h1>
-                                                    <div class="slider__btn">
-                                                        <a class="htc__btn" href="cart.html">shop now</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Slide -->
-                            </div>
-                        </div>
-                        <!-- Start Slider Area -->
-                    </div>
+
 
 
                       @yield('content')
@@ -352,7 +289,7 @@
                         <div class="col-md-3 col-lg-3 col-sm-6">
                             <div class="ft__widget">
                                 <div class="ft__logo">
-                                    <a href="index.html">
+                                    <a href="{{route('/')}}">
                                         <img src="images/logo/logo.png" alt="footer logo">
                                     </a>
                                 </div>
@@ -460,7 +397,7 @@
                                 </div>
                                 <ul class="footer__menu">
                                     <li><a href="{{route('/')}}">Home</a></li>
-                                    <li><a href="shop.html">Product</a></li>
+                                    <li><a href="/shop">Product</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </div>

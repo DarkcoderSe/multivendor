@@ -106,4 +106,13 @@ class SellerController extends Controller
         $product->save();
         return redirect('/seller/product');
     }
+
+    ///orders
+    public function orders(){
+        $products = Product::where('user_id', Auth::user()->id)->get();
+        
+        return view('seller.order.index')->with([
+            'orders' => $orders
+        ]);
+    }
 }

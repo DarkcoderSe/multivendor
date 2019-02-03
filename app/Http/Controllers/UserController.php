@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\User;
+use App\UserDetail;
+use App\Order;
 use Auth;
 use Cart;
 
@@ -13,7 +15,7 @@ class UserController extends Controller
     //
     public function add_to_cart(Request $request){
         $product = Product::find($request->product_id);
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
         Cart::add(array(
             'id' => $product->id,
             'name' => $product->name,
@@ -29,7 +31,7 @@ class UserController extends Controller
         return \Response::json($response);
     }
     public function get_from_cart(){
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
         $response = Cart::getContent();
 
         // Desi Methods

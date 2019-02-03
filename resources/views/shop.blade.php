@@ -10,7 +10,7 @@
                       <div class="bradcaump__inner text-center">
                           <h2 class="bradcaump-title">Shop Page</h2>
                           <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.html">Home</a>
+                            <a class="breadcrumb-item" href="{{route('/')}}">Home</a>
                             <span class="brd-separetor">/</span>
                             <span class="breadcrumb-item active">Shop Page</span>
                           </nav>

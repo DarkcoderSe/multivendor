@@ -32,16 +32,6 @@ class HomeController extends Controller
      *
      * @return \Illuminate\::views
      */
-     public function shop(){
-       $products = Product::orderBy('id','desc')->limit(20)->get();
-       return view('shop')->with('products',$products);
-     }
-
-    public function welcome(){
-        $products = Product::orderBy('id','desc')->limit(20)->get();
-        return view('welcome')->with('products',$products);
-    }
-
 
 
 
