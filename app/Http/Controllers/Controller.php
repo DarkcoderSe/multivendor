@@ -12,11 +12,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function welcome(){
-        $products = Product::limit(20)->get();
-        return view('welcome')->with([
-            'products' => $products
-        ]);
-    }
+    
 
 }

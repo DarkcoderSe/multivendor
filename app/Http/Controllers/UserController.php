@@ -39,7 +39,7 @@ class UserController extends Controller
             $newArray[$i] = $r;
             $i++;
         }
-        
+
         return \Response::json($newArray);
     }
     public function delete_from_cart($id){
@@ -50,5 +50,8 @@ class UserController extends Controller
         );
         return \Response::json($response);
 
+    }
+    public function orders(){
+      return true;
     }
 }

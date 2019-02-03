@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'Controller@welcome');
-
+Route::get('/', 'GeneralController@welcome')->name('/');
+Route::get('/shop','GeneralController@shop')->name('shop');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
